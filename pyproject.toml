@@ -1,0 +1,32 @@
+[project]
+name = "postcode-pt"
+version = "0.1.0"
+description = "REST API for Portuguese postal codes (CP4-CP3): lookup localities, municipalities and districts."
+readme = "README.md"
+authors = [
+    { name = "RobertoCCC", email = "robertoctf2000@hotmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "aiosqlite>=0.22.1",
+    "fastapi>=0.136.1",
+    "greenlet>=3.5.0",
+    "pydantic-settings>=2.14.1",
+    "sqlmodel>=0.0.38",
+    "uvicorn[standard]>=0.46.0",
+]
+
+[project.scripts]
+postcode-pt = "postcode_pt:main"
+
+[build-system]
+requires = ["uv_build>=0.11.14,<0.12.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+    "mypy>=2.1.0",
+    "pytest>=9.0.3",
+    "ruff>=0.15.12",
+]
