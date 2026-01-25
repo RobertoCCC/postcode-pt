@@ -1,0 +1,31 @@
+.git
+.github
+.venv
+.python-version
+
+# Local artefacts — built from scratch inside the image.
+data/
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Dev / test only.
+tests/
+.pytest_cache
+.mypy_cache
+.ruff_cache
+__pycache__/
+*.pyc
+
+# Editor / OS noise.
+.idea
+.vscode
+.DS_Store
+
+# Docs / meta — not needed at runtime.
+# Note: README.md must NOT be excluded — uv_build reads it as package metadata
+# (pyproject.toml: readme = "README.md") when installing the project.
+LICENSE
+.env
+.env.example
