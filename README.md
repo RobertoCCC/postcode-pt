@@ -1,5 +1,6 @@
 # postcode-pt
 
+[![Live demo](https://img.shields.io/badge/live%20demo-postcode--pt.onrender.com-2ecc71?logo=render&logoColor=white)](https://postcode-pt.onrender.com/docs)
 [![Python 3.14+](https://img.shields.io/badge/python-3.14+-3776AB?logo=python&logoColor=white)](https://www.python.org/downloads/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.136+-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
 [![Ruff](https://img.shields.io/badge/lint-ruff-D7FF64?logo=ruff&logoColor=black)](https://github.com/astral-sh/ruff)
@@ -7,6 +8,9 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
 A public REST API for **Portuguese postal codes (CP4-CP3)** — lookup the locality, municipality and district behind any address.
+
+**Try it live:** [Swagger UI](https://postcode-pt.onrender.com/docs) · [`GET /v1/postal-codes/1100-038`](https://postcode-pt.onrender.com/v1/postal-codes/1100-038) · [`GET /v1/districts`](https://postcode-pt.onrender.com/v1/districts)
+*(Free Render instance — first request after idle may take ~50s to wake up.)*
 
 Built around the open [`centraldedados/codigos_postais`](https://github.com/centraldedados/codigos_postais) dataset (~326k postal codes, 35k localities, 308 municipalities, 29 districts).
 
@@ -184,11 +188,13 @@ This repository's *code* is MIT-licensed; the *data* (once ingested) is PDDL —
 
 ## Roadmap
 
+- [x] Dockerfile (multi-stage, with pre-built DB baked in)
+- [x] Live deployment on [Render](https://postcode-pt.onrender.com/docs)
 - [ ] CI on GitHub Actions (pytest, ruff, mypy)
 - [ ] Alembic migrations (replace `create_all`)
 - [ ] Rate limiting + caching headers
-- [ ] Dockerfile + compose for Postgres
-- [ ] Live deployment (Fly.io / Render)
+- [ ] docker-compose for local Postgres
+- [ ] Custom domain
 
 ## License
 
