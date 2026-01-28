@@ -11,7 +11,9 @@ from pathlib import Path
 
 import httpx
 
-BASE_URL = "https://raw.githubusercontent.com/centraldedados/codigos_postais/master/data"
+BASE_URL = (
+    "https://raw.githubusercontent.com/centraldedados/codigos_postais/master/data"
+)
 FILES = ("distritos.csv", "concelhos.csv", "codigos_postais.csv")
 DATA_DIR = Path(__file__).resolve().parent.parent / "data" / "raw"
 

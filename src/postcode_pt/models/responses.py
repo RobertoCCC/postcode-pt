@@ -35,7 +35,9 @@ class PostalCodeEntry(BaseModel):
     """
 
     code: str = Field(examples=["1100-038"], description="CP4-CP3 combined")
-    designation: str = Field(examples=["LISBOA"], description="Official postal designation")
+    designation: str = Field(
+        examples=["LISBOA"], description="Official postal designation"
+    )
     street: Street
     locality: LocalityBrief
     municipality: MunicipalityBrief

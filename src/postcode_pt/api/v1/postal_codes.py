@@ -11,8 +11,12 @@ from postcode_pt.services import postal_codes as postal_codes_service
 
 router = APIRouter(prefix="/postal-codes", tags=["postal codes"])
 
-Cp4 = Annotated[str, Path(pattern=r"^\d{4}$", description="4-digit prefix", examples=["1100"])]
-Cp3 = Annotated[str, Path(pattern=r"^\d{3}$", description="3-digit suffix", examples=["038"])]
+Cp4 = Annotated[
+    str, Path(pattern=r"^\d{4}$", description="4-digit prefix", examples=["1100"])
+]
+Cp3 = Annotated[
+    str, Path(pattern=r"^\d{3}$", description="3-digit suffix", examples=["038"])
+]
 
 
 @router.get(

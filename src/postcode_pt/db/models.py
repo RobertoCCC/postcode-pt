@@ -38,9 +38,7 @@ class Locality(SQLModel, table=True):
 
 class PostalCode(SQLModel, table=True):
     __tablename__ = "postal_codes"
-    __table_args__ = (
-        Index("ix_postal_codes_cp4_cp3", "cp4", "cp3"),
-    )
+    __table_args__ = (Index("ix_postal_codes_cp4_cp3", "cp4", "cp3"),)
 
     id: int | None = Field(default=None, primary_key=True)
     cp4: str = Field(max_length=4)

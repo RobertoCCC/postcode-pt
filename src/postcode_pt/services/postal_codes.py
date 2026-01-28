@@ -18,15 +18,17 @@ async def find_by_cp4_cp3(
     session: AsyncSession, cp4: str, cp3: str
 ) -> list[PostalCodeEntry]:
     """Look up postal codes matching cp4-cp3, eagerly loading the full hierarchy."""
+    # mypy doesn't model SQLModel relationship attributes as QueryableAttribute, so the
+    # selectinload chain and Column ordering both trip it up despite being correct.
     stmt = (
         select(PostalCode)
         .options(
-            selectinload(PostalCode.locality)
-            .selectinload(Locality.municipality)
-            .selectinload(Municipality.district)
+            selectinload(PostalCode.locality)  # type: ignore[arg-type]
+            .selectinload(Locality.municipality)  # type: ignore[arg-type]
+            .selectinload(Municipality.district)  # type: ignore[arg-type]
         )
         .where(PostalCode.cp4 == cp4, PostalCode.cp3 == cp3)
-        .order_by(PostalCode.id)
+        .order_by(PostalCode.id)  # type: ignore[arg-type]
     )
     result = await session.execute(stmt)
     rows = result.scalars().all()

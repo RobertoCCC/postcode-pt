@@ -5,11 +5,7 @@ from sqlalchemy.orm import selectinload
 from sqlmodel import select
 
 from postcode_pt.db.models import District, Municipality
-from postcode_pt.models.responses import (
-    DistrictBrief,
-    MunicipalityBrief,
-    MunicipalityWithDistrict,
-)
+from postcode_pt.models.responses import DistrictBrief, MunicipalityWithDistrict
 
 
 async def list_all(session: AsyncSession) -> list[DistrictBrief]:
@@ -34,7 +30,7 @@ async def list_municipalities(
 
     stmt = (
         select(Municipality)
-        .options(selectinload(Municipality.district))
+        .options(selectinload(Municipality.district))  # type: ignore[arg-type]
         .where(Municipality.district_id == district.id)
         .order_by(Municipality.name)
     )

@@ -128,7 +128,9 @@ async def ingest_localities(
         cd, cc = mun_code[:2], mun_code[2:]
         locality_id_lookup[(cd, cc, cl)] = loc_id
 
-    print(f"  localities:     {len(locality_id_lookup):>7,} rows (skipped {skipped} unmatched)")
+    print(
+        f"  localities:     {len(locality_id_lookup):>7,} rows (skipped {skipped} unmatched)"
+    )
     return locality_id_lookup
 
 
@@ -171,12 +173,16 @@ async def ingest_postal_codes(
         inserted += len(batch)
 
     await session.commit()
-    print(f"  postal_codes:   {inserted:>7,} rows (skipped {skipped_no_locality} without locality)")
+    print(
+        f"  postal_codes:   {inserted:>7,} rows (skipped {skipped_no_locality} without locality)"
+    )
 
 
 async def main() -> int:
     if not (DATA_DIR / "codigos_postais.csv").exists():
-        print(f"ERROR: dataset not found in {DATA_DIR}. Run scripts/download_data.py first.")
+        print(
+            f"ERROR: dataset not found in {DATA_DIR}. Run scripts/download_data.py first."
+        )
         return 1
 
     print("Resetting schema...")

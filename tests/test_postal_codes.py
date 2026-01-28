@@ -18,7 +18,9 @@ async def test_lookup_returns_full_hierarchy(client: AsyncClient) -> None:
     assert entry["district"] == {"code": "11", "name": "Lisboa"}
 
 
-async def test_lookup_returns_multiple_entries_for_same_code(client: AsyncClient) -> None:
+async def test_lookup_returns_multiple_entries_for_same_code(
+    client: AsyncClient,
+) -> None:
     response = await client.get("/v1/postal-codes/1100-039")
     assert response.status_code == 200
 
