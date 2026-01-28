@@ -1,5 +1,6 @@
 # postcode-pt
 
+[![CI](https://github.com/RobertoCCC/postcode-pt/actions/workflows/ci.yml/badge.svg)](https://github.com/RobertoCCC/postcode-pt/actions/workflows/ci.yml)
 [![Live demo](https://img.shields.io/badge/live%20demo-postcode--pt.onrender.com-2ecc71?logo=render&logoColor=white)](https://postcode-pt.onrender.com/docs)
 [![Python 3.14+](https://img.shields.io/badge/python-3.14+-3776AB?logo=python&logoColor=white)](https://www.python.org/downloads/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.136+-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
@@ -190,7 +191,7 @@ This repository's *code* is MIT-licensed; the *data* (once ingested) is PDDL —
 
 - [x] Dockerfile (multi-stage, with pre-built DB baked in)
 - [x] Live deployment on [Render](https://postcode-pt.onrender.com/docs)
-- [ ] CI on GitHub Actions (pytest, ruff, mypy)
+- [x] CI on GitHub Actions (ruff, mypy, pytest)
 - [ ] Alembic migrations (replace `create_all`)
 - [ ] Rate limiting + caching headers
 - [ ] docker-compose for local Postgres
