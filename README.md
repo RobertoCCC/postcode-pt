@@ -1,7 +1,8 @@
 # postcode-pt
 
 [![CI](https://github.com/RobertoCCC/postcode-pt/actions/workflows/ci.yml/badge.svg)](https://github.com/RobertoCCC/postcode-pt/actions/workflows/ci.yml)
-[![Live demo](https://img.shields.io/badge/live%20demo-postcode--pt.onrender.com-2ecc71?logo=render&logoColor=white)](https://postcode-pt.onrender.com/docs)
+[![Web app](https://img.shields.io/badge/web%20app-postcode--pt--web.vercel.app-black?logo=vercel)](https://postcode-pt-web.vercel.app)
+[![API docs](https://img.shields.io/badge/API%20docs-postcode--pt.onrender.com-2ecc71?logo=render&logoColor=white)](https://postcode-pt.onrender.com/docs)
 [![Python 3.14+](https://img.shields.io/badge/python-3.14+-3776AB?logo=python&logoColor=white)](https://www.python.org/downloads/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.136+-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
 [![Ruff](https://img.shields.io/badge/lint-ruff-D7FF64?logo=ruff&logoColor=black)](https://github.com/astral-sh/ruff)
@@ -10,7 +11,7 @@
 
 A public REST API for **Portuguese postal codes (CP4-CP3)** — lookup the locality, municipality and district behind any address.
 
-**Try it live:** [Swagger UI](https://postcode-pt.onrender.com/docs) · [`GET /v1/postal-codes/1100-038`](https://postcode-pt.onrender.com/v1/postal-codes/1100-038) · [`GET /v1/districts`](https://postcode-pt.onrender.com/v1/districts)
+**Try it live:** [Web app](https://postcode-pt-web.vercel.app) (Next.js frontend — [source](https://github.com/RobertoCCC/postcode-pt-web)) · [Swagger UI](https://postcode-pt.onrender.com/docs) · [`GET /v1/postal-codes/1100-038`](https://postcode-pt.onrender.com/v1/postal-codes/1100-038) · [`GET /v1/districts`](https://postcode-pt.onrender.com/v1/districts)
 *(Free Render instance — first request after idle may take ~50s to wake up.)*
 
 Built around the open [`centraldedados/codigos_postais`](https://github.com/centraldedados/codigos_postais) dataset (~326k postal codes, 35k localities, 308 municipalities, 29 districts).
@@ -190,7 +191,8 @@ This repository's *code* is MIT-licensed; the *data* (once ingested) is PDDL —
 ## Roadmap
 
 - [x] Dockerfile (multi-stage, with pre-built DB baked in)
-- [x] Live deployment on [Render](https://postcode-pt.onrender.com/docs)
+- [x] Live API on [Render](https://postcode-pt.onrender.com/docs)
+- [x] [Web frontend](https://postcode-pt-web.vercel.app) (Next.js, [postcode-pt-web](https://github.com/RobertoCCC/postcode-pt-web))
 - [x] CI on GitHub Actions (ruff, mypy, pytest)
 - [ ] Alembic migrations (replace `create_all`)
 - [ ] Rate limiting + caching headers
