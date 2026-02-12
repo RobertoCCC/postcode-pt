@@ -193,6 +193,7 @@ This repository's *code* is MIT-licensed; the *data* (once ingested) is PDDL —
 - [x] Dockerfile (multi-stage, with pre-built DB baked in)
 - [x] Live API on [Render](https://postcode-pt.onrender.com/docs)
 - [x] [Web frontend](https://postcode-pt-web.vercel.app) (Next.js, [postcode-pt-web](https://github.com/RobertoCCC/postcode-pt-web))
+- [x] [CLI client](https://github.com/RobertoCCC/postcode-pt-cli) (Go, `pcpt 1100-038`)
 - [x] CI on GitHub Actions (ruff, mypy, pytest)
 - [ ] Alembic migrations (replace `create_all`)
 - [ ] Rate limiting + caching headers
